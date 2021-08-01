@@ -1,12 +1,13 @@
 {
   "schemaVersion": 1,
-  "id": "modid",
+  "id": "tcursed",
   "version": "${version}",
 
-  "name": "Example Mod",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "name": "Thrice Cursed",
+  "description": "Thrice Cursed Mod",
   "authors": [
-    "Me!"
+    "ZeroDayRNA",
+    "ColdishRamen"
   ],
   "contact": {
     "homepage": "https://fabricmc.net/",
@@ -14,16 +15,16 @@
   },
 
   "license": "CC0-1.0",
-  "icon": "assets/modid/icon.png",
+  "icon": "assets/tcursed/icon.png",
 
   "environment": "*",
   "entrypoints": {
     "main": [
-      "net.fabricmc.example.ThriceCursed"
+      "thrice.cursed.ThriceCursed"
     ]
   },
   "mixins": [
-    "modid.mixins.json"
+    "tcursed.mixins.json"
   ],
 
   "depends": {
