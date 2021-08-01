@@ -1,4 +1,4 @@
-package thrice.cursed.main.mixin;
+package net.fabricmc.example.mixin;
 
 import net.minecraft.client.gui.screen.TitleScreen;
 import org.spongepowered.asm.mixin.Mixin;
