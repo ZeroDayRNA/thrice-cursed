@@ -1,20 +1,6 @@
 {
-  "type": "minecraft:block",
-  "pools": [
-    {
-      "rolls": 1,
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "name": "tcursed:coldish_block"
-        }
-      ],
-      "conditions": [
-        {
-          "condition": "minecraft:survives_explosion"
-        }
-      ]
-    }
-  ]
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "tcursed:block/coldish_block"
+  }
 }
-
