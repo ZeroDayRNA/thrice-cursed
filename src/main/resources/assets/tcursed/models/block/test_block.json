@@ -1,4 +1,5 @@
 {
+  "credit": "Made with Blockbench",
   "parent": "block/cube_all",
   "textures": {
     "0": "tcursed:block/test_block"
