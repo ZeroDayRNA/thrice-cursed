@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "W  ",
+    "  ",
+    "  "
+  ],
+  "key": {
+    "W": {
+      "tag": "tcursed:cursed_wood"
+    },
+  "result": {
+    "item": "tcursed:cursed_plank",
+    "count": 4
+  }
+}
+
