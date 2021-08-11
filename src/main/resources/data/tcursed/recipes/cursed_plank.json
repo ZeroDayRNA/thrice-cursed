@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "tcursed:cursed_wood"
+    }
+  ],
+  "result": {
+    "item": "tcursed:cursed_plank",
+    "count": 4
+  },
+  "group": "planks"
+}
