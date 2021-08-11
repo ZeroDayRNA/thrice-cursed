@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "tcursed:block/cursed_wood_hori",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "tcursed:block/cursed_wood"
+    },
+    "axis=z": {
+      "model": "tcursed:block/cursed_wood_hori",
+      "x": 90
+    }
+  }
+}
