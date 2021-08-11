@@ -9,9 +9,9 @@
     "W": {
       "tag": "tcursed:cursed_wood"
     },
-  "result": {
-    "item": "tcursed:cursed_plank",
-    "count": 4
+    "result": {
+      "item": "tcursed:cursed_plank",
+      "count": 4
+    }
   }
 }
-
