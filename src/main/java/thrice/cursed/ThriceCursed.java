@@ -42,13 +42,13 @@ public class ThriceCursed implements ModInitializer {
         Registry.register(Registry.ITEM, new Identifier("tcursed","test_block_2"), new BlockItem(TEST_BLOCK_2, new FabricItemSettings().group(ItemGroup.MISC)));
 
         Registry.register(Registry.BLOCK, new Identifier("tcursed","cursed_wood" ), CURSED_WOOD);
-        Registry.register(Registry.ITEM, new Identifier("tcursed","cursed_wood"), new BlockItem(CURSED_WOOD, new FabricItemSettings().group(ItemGroup.MISC)));
+        Registry.register(Registry.ITEM, new Identifier("tcursed","cursed_wood"), new BlockItem(CURSED_WOOD, new FabricItemSettings().group(ItemGroup.MISC).group(ItemGroup.BUILDING_BLOCKS)));
 
         Registry.register(Registry.BLOCK, new Identifier("tcursed","cursed_plank" ), CURSED_PLANK);
-        Registry.register(Registry.ITEM, new Identifier("tcursed","cursed_plank"), new BlockItem(CURSED_PLANK, new FabricItemSettings().group(ItemGroup.MISC)));
+        Registry.register(Registry.ITEM, new Identifier("tcursed","cursed_plank"), new BlockItem(CURSED_PLANK, new FabricItemSettings().group(ItemGroup.MISC).group(ItemGroup.BUILDING_BLOCKS)));
 
         Registry.register(Registry.BLOCK, new Identifier("tcursed","cursed_stair" ), CURSED_STAIR);
-        Registry.register(Registry.ITEM, new Identifier("tcursed","cursed_stair"), new BlockItem(CURSED_STAIR, new FabricItemSettings().group(ItemGroup.MISC)));
+        Registry.register(Registry.ITEM, new Identifier("tcursed","cursed_stair"), new BlockItem(CURSED_STAIR, new FabricItemSettings().group(ItemGroup.MISC).group(ItemGroup.BUILDING_BLOCKS)));
 
         System.out.println("Hello Fabric world!");
     }
