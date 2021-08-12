@@ -21,6 +21,9 @@
   "entrypoints": {
     "main": [
       "thrice.cursed.ThriceCursed"
+    ],
+    "client": [
+      "thrice.cursed.client.ThriceCursedClient"
     ]
   },
   "mixins": [

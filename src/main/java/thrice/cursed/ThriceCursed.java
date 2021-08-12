@@ -34,8 +34,6 @@ public class ThriceCursed implements ModInitializer {
             new Identifier("tcursed","stomper"),
             FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, StomperEntity::new).dimensions(EntityDimensions.fixed(0.75f,0.75f)).build()
     );
-    public static final EntityModelLayer MODEL_STOMPER_LAYER = new EntityModelLayer(new Identifier("tcursed","stomper"), "Stomper");
-
 
     public static final Item TEST_ITEM = new Item(new FabricItemSettings().group(ItemGroup.MISC));
     public static final Block COLDISH_BLOCK = new Block(FabricBlockSettings.of(Material.METAL).strength(4.0f));
@@ -71,6 +69,7 @@ public class ThriceCursed implements ModInitializer {
         Registry.register(Registry.BLOCK, new Identifier("tcursed","cursed_stair" ), CURSED_STAIR);
         Registry.register(Registry.ITEM, new Identifier("tcursed","cursed_stair"), new BlockItem(CURSED_STAIR, new FabricItemSettings().group(ItemGroup.MISC).group(ItemGroup.BUILDING_BLOCKS)));
 
+<<<<<<< HEAD
         FabricDefaultAttributeRegistry.register(STOMPER, StomperEntity.createMobAttributes());
 
         Registry.register(Registry.BLOCK, new Identifier("tcursed","cursed_half" ), CURSED_HALF);
@@ -79,6 +78,12 @@ public class ThriceCursed implements ModInitializer {
         Registry.register(Registry.BLOCK, new Identifier("tcursed","cursed_door" ), CURSED_DOOR);
         Registry.register(Registry.ITEM, new Identifier("tcursed","cursed_door"), new BlockItem(CURSED_DOOR, new FabricItemSettings().group(ItemGroup.MISC).group(ItemGroup.REDSTONE)));
 
+=======
+        Registry.register(Registry.BLOCK, new Identifier("tcursed","cursed_half" ), CURSED_HALF);
+        Registry.register(Registry.ITEM, new Identifier("tcursed","cursed_half"), new BlockItem(CURSED_HALF, new FabricItemSettings().group(ItemGroup.MISC).group(ItemGroup.BUILDING_BLOCKS)));
+
+        FabricDefaultAttributeRegistry.register(STOMPER, StomperEntity.createMobAttributes());
+>>>>>>> 0aa09221aefb045744b9d68c5657bb302378ac82
 
         System.out.println("Hello Fabric world!");
     }
