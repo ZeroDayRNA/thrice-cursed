@@ -1,5 +1,6 @@
 {
   "block.tcursed.cursed_wood":"Cursed Log",
   "block.tcursed.cursed_plank": "Cursed Planks",
-  "block.tcursed.cursed_stair": "Cursed Stairs"
+  "block.tcursed.cursed_stair": "Cursed Stairs",
+  "block.tcursed.cursed_half": "Cursed Slab"
 }

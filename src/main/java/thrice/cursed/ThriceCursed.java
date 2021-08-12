@@ -43,6 +43,7 @@ public class ThriceCursed implements ModInitializer {
     public static final Block CURSED_WOOD = createLog();
     public static final Block CURSED_PLANK = new Block(FabricBlockSettings.of(Material.WOOD).strength(2.0f));
     public static final Block CURSED_STAIR = new TerraformStairsBlock(CURSED_PLANK, Settings.copy(Blocks.OAK_STAIRS));
+    public static final Block CURSED_HALF = new SlabBlock(FabricBlockSettings.of(Material.WOOD).strength(2.0f));
 
 
 
@@ -69,6 +70,10 @@ public class ThriceCursed implements ModInitializer {
         Registry.register(Registry.ITEM, new Identifier("tcursed","cursed_stair"), new BlockItem(CURSED_STAIR, new FabricItemSettings().group(ItemGroup.MISC).group(ItemGroup.BUILDING_BLOCKS)));
 
         FabricDefaultAttributeRegistry.register(STOMPER, StomperEntity.createMobAttributes());
+        Registry.register(Registry.BLOCK, new Identifier("tcursed","cursed_half" ), CURSED_HALF);
+        Registry.register(Registry.ITEM, new Identifier("tcursed","cursed_half"), new BlockItem(CURSED_HALF, new FabricItemSettings().group(ItemGroup.MISC).group(ItemGroup.BUILDING_BLOCKS)));
+
+
         System.out.println("Hello Fabric world!");
     }
 }
