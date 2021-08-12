@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "wooden_stairs",
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "tcursed:cursed_plank"
+    }
+  },
+  "result": {
+    "item": "tcursed:cursed_stair",
+    "count": 4
+  }
+}

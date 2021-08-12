@@ -1,5 +1,6 @@
 package thrice.cursed;
 
+import com.terraformersmc.terraform.wood.block.TerraformStairsBlock;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
@@ -11,7 +12,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
-
+import net.minecraft.block.AbstractBlock.Settings;
 
 public class ThriceCursed implements ModInitializer {
     public static PillarBlock createLog(){
@@ -25,8 +26,7 @@ public class ThriceCursed implements ModInitializer {
     public static final Block TEST_BLOCK_2 = new Block(FabricBlockSettings.of(Material.WOOD).strength(4.0f));
     public static final Block CURSED_WOOD = createLog();
     public static final Block CURSED_PLANK = new Block(FabricBlockSettings.of(Material.WOOD).strength(2.0f));
-
-
+    public static final Block CURSED_STAIR = new TerraformStairsBlock(CURSED_PLANK, Settings.copy(Blocks.OAK_STAIRS));
 
     @Override
     public void onInitialize() {
@@ -46,6 +46,9 @@ public class ThriceCursed implements ModInitializer {
 
         Registry.register(Registry.BLOCK, new Identifier("tcursed","cursed_plank" ), CURSED_PLANK);
         Registry.register(Registry.ITEM, new Identifier("tcursed","cursed_plank"), new BlockItem(CURSED_PLANK, new FabricItemSettings().group(ItemGroup.MISC)));
+
+        Registry.register(Registry.BLOCK, new Identifier("tcursed","cursed_stair" ), CURSED_STAIR);
+        Registry.register(Registry.ITEM, new Identifier("tcursed","cursed_stair"), new BlockItem(CURSED_STAIR, new FabricItemSettings().group(ItemGroup.MISC)));
 
         System.out.println("Hello Fabric world!");
     }
