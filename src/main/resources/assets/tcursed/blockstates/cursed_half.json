@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "tcursed:block/cursed_half"
+    },
+    "type=double": {
+      "model": "tcursed:block/cursed_plank"
+    },
+    "type=top": {
+      "model": "tcursed:block/cursed_half_top"
+    }
+  }
+}
