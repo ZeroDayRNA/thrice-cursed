@@ -1,0 +1,7 @@
+{
+  "parent": "block/door_bottom",
+  "textures": {
+    "top": "tcursed:block/cursed_door_top",
+    "bottom": "tcursed:block/cursed_door_bottom"
+  }
+}

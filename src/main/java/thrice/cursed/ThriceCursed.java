@@ -1,5 +1,6 @@
 package thrice.cursed;
 
+import com.terraformersmc.terraform.wood.block.TerraformDoorBlock;
 import com.terraformersmc.terraform.wood.block.TerraformStairsBlock;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
@@ -44,6 +45,7 @@ public class ThriceCursed implements ModInitializer {
     public static final Block CURSED_PLANK = new Block(FabricBlockSettings.of(Material.WOOD).strength(2.0f));
     public static final Block CURSED_STAIR = new TerraformStairsBlock(CURSED_PLANK, Settings.copy(Blocks.OAK_STAIRS));
     public static final Block CURSED_HALF = new SlabBlock(FabricBlockSettings.of(Material.WOOD).strength(2.0f));
+    public static final Block CURSED_DOOR = new TerraformDoorBlock(FabricBlockSettings.of(Material.WOOD).strength(2.0f));
 
 
 
@@ -70,8 +72,12 @@ public class ThriceCursed implements ModInitializer {
         Registry.register(Registry.ITEM, new Identifier("tcursed","cursed_stair"), new BlockItem(CURSED_STAIR, new FabricItemSettings().group(ItemGroup.MISC).group(ItemGroup.BUILDING_BLOCKS)));
 
         FabricDefaultAttributeRegistry.register(STOMPER, StomperEntity.createMobAttributes());
+
         Registry.register(Registry.BLOCK, new Identifier("tcursed","cursed_half" ), CURSED_HALF);
         Registry.register(Registry.ITEM, new Identifier("tcursed","cursed_half"), new BlockItem(CURSED_HALF, new FabricItemSettings().group(ItemGroup.MISC).group(ItemGroup.BUILDING_BLOCKS)));
+
+        Registry.register(Registry.BLOCK, new Identifier("tcursed","cursed_door" ), CURSED_DOOR);
+        Registry.register(Registry.ITEM, new Identifier("tcursed","cursed_door"), new BlockItem(CURSED_DOOR, new FabricItemSettings().group(ItemGroup.MISC).group(ItemGroup.REDSTONE)));
 
 
         System.out.println("Hello Fabric world!");
