@@ -14,7 +14,7 @@ import thrice.cursed.render.StomperEntityRenderer;
 @Environment(EnvType.CLIENT)
 public class ThriceCursedClient implements ClientModInitializer {
 
-    public static final EntityModelLayer MODEL_STOMPER_LAYER = new EntityModelLayer(new Identifier("tcursed", "stomper"),"main");
+    public static final EntityModelLayer MODEL_STOMPER_LAYER = new EntityModelLayer(new Identifier(ThriceCursed.MOD_ID, "stomper"),"main");
 
     @Override
     public void onInitializeClient() {

@@ -9,7 +9,6 @@ import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRe
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
 import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
 import net.minecraft.block.*;
-import net.minecraft.client.render.entity.model.EntityModelLayer;
 import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
@@ -21,11 +20,11 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.block.AbstractBlock.Settings;
-import net.minecraft.tag.*;
 import thrice.cursed.entity.StomperEntity;
 
-
 public class ThriceCursed implements ModInitializer {
+    public static final String MOD_ID = "tcursed";
+
     public static PillarBlock createLog(){
         return new PillarBlock(FabricBlockSettings.of(Material.WOOD, (state)->{
             return state.get(PillarBlock.AXIS) == Direction.Axis.Y ? MapColor.BROWN : MapColor.GREEN;
@@ -33,7 +32,7 @@ public class ThriceCursed implements ModInitializer {
     }
     public static final EntityType<StomperEntity> STOMPER = Registry.register(
             Registry.ENTITY_TYPE,
-            new Identifier("tcursed","stomper"),
+            new Identifier(MOD_ID,"stomper"),
             FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, StomperEntity::new).dimensions(EntityDimensions.fixed(0.75f,0.75f)).build()
     );
 
@@ -51,31 +50,31 @@ public class ThriceCursed implements ModInitializer {
 
     @Override
     public void onInitialize() {
-        Registry.register(Registry.ITEM, new Identifier("tcursed", "colidsh_item"), TEST_ITEM);
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "colidsh_item"), TEST_ITEM);
 
-        Registry.register(Registry.BLOCK, new Identifier("tcursed", "coldish_block"), COLDISH_BLOCK);
-        Registry.register(Registry.ITEM, new Identifier("tcursed", "coldish_block"), new BlockItem(COLDISH_BLOCK, new FabricItemSettings().group(ItemGroup.MISC)));
+        Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "coldish_block"), COLDISH_BLOCK);
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "coldish_block"), new BlockItem(COLDISH_BLOCK, new FabricItemSettings().group(ItemGroup.MISC)));
 
-        Registry.register(Registry.BLOCK, new Identifier("tcursed","test_block"), TEST_BLOCK);
-        Registry.register(Registry.ITEM, new Identifier("tcursed","test_block"), new BlockItem(TEST_BLOCK, new FabricItemSettings().group(ItemGroup.MISC)));
+        Registry.register(Registry.BLOCK, new Identifier(MOD_ID,"test_block"), TEST_BLOCK);
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID,"test_block"), new BlockItem(TEST_BLOCK, new FabricItemSettings().group(ItemGroup.MISC)));
 
-        Registry.register(Registry.BLOCK, new Identifier("tcursed","test_block_2"), TEST_BLOCK_2);
-        Registry.register(Registry.ITEM, new Identifier("tcursed","test_block_2"), new BlockItem(TEST_BLOCK_2, new FabricItemSettings().group(ItemGroup.MISC)));
+        Registry.register(Registry.BLOCK, new Identifier(MOD_ID,"test_block_2"), TEST_BLOCK_2);
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID,"test_block_2"), new BlockItem(TEST_BLOCK_2, new FabricItemSettings().group(ItemGroup.MISC)));
 
-        Registry.register(Registry.BLOCK, new Identifier("tcursed","cursed_wood" ), CURSED_WOOD);
-        Registry.register(Registry.ITEM, new Identifier("tcursed","cursed_wood"), new BlockItem(CURSED_WOOD, new FabricItemSettings().group(ItemGroup.MISC).group(ItemGroup.BUILDING_BLOCKS)));
+        Registry.register(Registry.BLOCK, new Identifier(MOD_ID,"cursed_wood" ), CURSED_WOOD);
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID,"cursed_wood"), new BlockItem(CURSED_WOOD, new FabricItemSettings().group(ItemGroup.MISC).group(ItemGroup.BUILDING_BLOCKS)));
 
-        Registry.register(Registry.BLOCK, new Identifier("tcursed","cursed_plank" ), CURSED_PLANK);
-        Registry.register(Registry.ITEM, new Identifier("tcursed","cursed_plank"), new BlockItem(CURSED_PLANK, new FabricItemSettings().group(ItemGroup.MISC).group(ItemGroup.BUILDING_BLOCKS)));
+        Registry.register(Registry.BLOCK, new Identifier(MOD_ID,"cursed_plank" ), CURSED_PLANK);
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID,"cursed_plank"), new BlockItem(CURSED_PLANK, new FabricItemSettings().group(ItemGroup.MISC).group(ItemGroup.BUILDING_BLOCKS)));
 
-        Registry.register(Registry.BLOCK, new Identifier("tcursed","cursed_stair" ), CURSED_STAIR);
-        Registry.register(Registry.ITEM, new Identifier("tcursed","cursed_stair"), new BlockItem(CURSED_STAIR, new FabricItemSettings().group(ItemGroup.MISC).group(ItemGroup.BUILDING_BLOCKS)));
+        Registry.register(Registry.BLOCK, new Identifier(MOD_ID,"cursed_stair" ), CURSED_STAIR);
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID,"cursed_stair"), new BlockItem(CURSED_STAIR, new FabricItemSettings().group(ItemGroup.MISC).group(ItemGroup.BUILDING_BLOCKS)));
 
-        Registry.register(Registry.BLOCK, new Identifier("tcursed","cursed_half" ), CURSED_HALF);
-        Registry.register(Registry.ITEM, new Identifier("tcursed","cursed_half"), new BlockItem(CURSED_HALF, new FabricItemSettings().group(ItemGroup.MISC).group(ItemGroup.BUILDING_BLOCKS)));
+        Registry.register(Registry.BLOCK, new Identifier(MOD_ID,"cursed_half" ), CURSED_HALF);
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID,"cursed_half"), new BlockItem(CURSED_HALF, new FabricItemSettings().group(ItemGroup.MISC).group(ItemGroup.BUILDING_BLOCKS)));
 
-        Registry.register(Registry.BLOCK, new Identifier("tcursed","cursed_door" ), CURSED_DOOR);
-        Registry.register(Registry.ITEM, new Identifier("tcursed","cursed_door"), new BlockItem(CURSED_DOOR, new FabricItemSettings().group(ItemGroup.MISC).group(ItemGroup.REDSTONE)));
+        Registry.register(Registry.BLOCK, new Identifier(MOD_ID,"cursed_door" ), CURSED_DOOR);
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID,"cursed_door"), new BlockItem(CURSED_DOOR, new FabricItemSettings().group(ItemGroup.MISC).group(ItemGroup.REDSTONE)));
 
         FabricDefaultAttributeRegistry.register(STOMPER, StomperEntity.createMobAttributes());
         FabricDefaultAttributeRegistry.register(STOMPER, StomperEntity.createMobAttributes());
