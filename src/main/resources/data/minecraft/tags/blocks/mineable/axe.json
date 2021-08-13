@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "tcursed:cursed_wood",
+    "tcursed:cursed_plank",
+    "tcursed:cursed_half",
+    "tcursed:cursed_door",
+    "tcursed:cursed_stair",
+    "tcursed:cursed_button"
+  ]
+}

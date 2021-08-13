@@ -1,0 +1,6 @@
+{
+  "parent": "block/button",
+  "textures": {
+    "texture": "tcursed:block/cursed_plank"
+  }
+}

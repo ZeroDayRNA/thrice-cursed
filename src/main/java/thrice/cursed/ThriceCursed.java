@@ -1,5 +1,6 @@
 package thrice.cursed;
 
+import com.terraformersmc.terraform.wood.block.TerraformButtonBlock;
 import com.terraformersmc.terraform.wood.block.TerraformDoorBlock;
 import com.terraformersmc.terraform.wood.block.TerraformStairsBlock;
 import net.fabricmc.api.ModInitializer;
@@ -8,6 +9,9 @@ import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
 import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
+import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
+import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
+import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.minecraft.block.*;
 import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityType;
@@ -41,11 +45,11 @@ public class ThriceCursed implements ModInitializer {
     public static final Block TEST_BLOCK = new Block(FabricBlockSettings.of(Material.METAL).strength(4.0f));
     public static final Block TEST_BLOCK_2 = new Block(FabricBlockSettings.of(Material.WOOD).strength(4.0f));
     public static final Block CURSED_WOOD = createLog();
-    public static final Block CURSED_PLANK = new Block(FabricBlockSettings.of(Material.WOOD).strength(2.3f).breakByTool(FabricToolTags.AXES));
+    public static final Block CURSED_PLANK = new Block(FabricBlockSettings.of(Material.WOOD).strength(2.3f));
     public static final Block CURSED_STAIR = new TerraformStairsBlock(CURSED_PLANK, Settings.copy(Blocks.OAK_STAIRS));
-    public static final Block CURSED_HALF = new SlabBlock(FabricBlockSettings.of(Material.WOOD).strength(2.3f).breakByTool(FabricToolTags.AXES));
-    public static final Block CURSED_DOOR = new TerraformDoorBlock(FabricBlockSettings.of(Material.WOOD).strength(2.3f).breakByTool(FabricToolTags.AXES));
-
+    public static final Block CURSED_HALF = new SlabBlock(FabricBlockSettings.of(Material.WOOD).strength(2.3f));
+    public static final Block CURSED_DOOR = new TerraformDoorBlock(FabricBlockSettings.of(Material.WOOD).strength(2.3f));
+    public static final Block CURSED_BUTTON = new TerraformButtonBlock(FabricBlockSettings.of(Material.WOOD).strength(2.3f));
 
 
     @Override
@@ -63,18 +67,27 @@ public class ThriceCursed implements ModInitializer {
 
         Registry.register(Registry.BLOCK, new Identifier(MOD_ID,"cursed_wood" ), CURSED_WOOD);
         Registry.register(Registry.ITEM, new Identifier(MOD_ID,"cursed_wood"), new BlockItem(CURSED_WOOD, new FabricItemSettings().group(ItemGroup.MISC).group(ItemGroup.BUILDING_BLOCKS)));
+        FlammableBlockRegistry.getDefaultInstance().add(CURSED_WOOD, 5,5);
 
         Registry.register(Registry.BLOCK, new Identifier(MOD_ID,"cursed_plank" ), CURSED_PLANK);
         Registry.register(Registry.ITEM, new Identifier(MOD_ID,"cursed_plank"), new BlockItem(CURSED_PLANK, new FabricItemSettings().group(ItemGroup.MISC).group(ItemGroup.BUILDING_BLOCKS)));
+        FlammableBlockRegistry.getDefaultInstance().add(CURSED_PLANK, 5,20);
 
         Registry.register(Registry.BLOCK, new Identifier(MOD_ID,"cursed_stair" ), CURSED_STAIR);
         Registry.register(Registry.ITEM, new Identifier(MOD_ID,"cursed_stair"), new BlockItem(CURSED_STAIR, new FabricItemSettings().group(ItemGroup.MISC).group(ItemGroup.BUILDING_BLOCKS)));
+        FlammableBlockRegistry.getDefaultInstance().add(CURSED_STAIR, 5,20);
 
         Registry.register(Registry.BLOCK, new Identifier(MOD_ID,"cursed_half" ), CURSED_HALF);
         Registry.register(Registry.ITEM, new Identifier(MOD_ID,"cursed_half"), new BlockItem(CURSED_HALF, new FabricItemSettings().group(ItemGroup.MISC).group(ItemGroup.BUILDING_BLOCKS)));
+        FlammableBlockRegistry.getDefaultInstance().add(CURSED_HALF, 5,20);
 
         Registry.register(Registry.BLOCK, new Identifier(MOD_ID,"cursed_door" ), CURSED_DOOR);
         Registry.register(Registry.ITEM, new Identifier(MOD_ID,"cursed_door"), new BlockItem(CURSED_DOOR, new FabricItemSettings().group(ItemGroup.MISC).group(ItemGroup.REDSTONE)));
+        FlammableBlockRegistry.getDefaultInstance().add(CURSED_DOOR, 5,20);
+
+        Registry.register(Registry.BLOCK, new Identifier(MOD_ID,"cursed_button" ), CURSED_BUTTON);
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID,"cursed_button"), new BlockItem(CURSED_BUTTON, new FabricItemSettings().group(ItemGroup.MISC).group(ItemGroup.REDSTONE)));
+        FlammableBlockRegistry.getDefaultInstance().add(CURSED_BUTTON, 5,20);
 
         FabricDefaultAttributeRegistry.register(STOMPER, StomperEntity.createMobAttributes());
         FabricDefaultAttributeRegistry.register(STOMPER, StomperEntity.createMobAttributes());

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "wooden_button",
+  "ingredients": [
+    {
+      "item": "tcursed:cursed_planks"
+    }
+  ],
+  "result": {
+    "item": "tcursed:cursed_button"
+  }
+}
