@@ -3,6 +3,9 @@
   "block.tcursed.cursed_plank": "Cursed Planks",
   "block.tcursed.cursed_stair": "Cursed Stairs",
   "block.tcursed.cursed_half": "Cursed Slab",
-  "block.tcursed.cursed_door": "Cursed Door"
+  "block.tcursed.cursed_door": "Cursed Door",
+  "block.tcursed.cursed_button": "Cursed Button",
+  "block.tcursed.cursed_pressure_plate": "Cursed Pressure Plate",
+  "block.tcursed.cursed_fence": "Cursed Fence"
 
 }

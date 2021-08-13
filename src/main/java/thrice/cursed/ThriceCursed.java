@@ -2,6 +2,7 @@ package thrice.cursed;
 
 import com.terraformersmc.terraform.wood.block.TerraformButtonBlock;
 import com.terraformersmc.terraform.wood.block.TerraformDoorBlock;
+import com.terraformersmc.terraform.wood.block.TerraformPressurePlateBlock;
 import com.terraformersmc.terraform.wood.block.TerraformStairsBlock;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
@@ -50,7 +51,8 @@ public class ThriceCursed implements ModInitializer {
     public static final Block CURSED_HALF = new SlabBlock(FabricBlockSettings.of(Material.WOOD).strength(2.3f));
     public static final Block CURSED_DOOR = new TerraformDoorBlock(FabricBlockSettings.of(Material.WOOD).strength(2.3f));
     public static final Block CURSED_BUTTON = new TerraformButtonBlock(FabricBlockSettings.of(Material.WOOD).strength(2.3f));
-
+    public static final Block CURSED_PRESSURE_PLATE = new TerraformPressurePlateBlock(FabricBlockSettings.of(Material.WOOD).strength(2.3f));
+    public static final Block CURSED_FENCE = new FenceBlock(FabricBlockSettings.of(Material.WOOD).strength(2.3f));
 
     @Override
     public void onInitialize() {
@@ -88,6 +90,15 @@ public class ThriceCursed implements ModInitializer {
         Registry.register(Registry.BLOCK, new Identifier(MOD_ID,"cursed_button" ), CURSED_BUTTON);
         Registry.register(Registry.ITEM, new Identifier(MOD_ID,"cursed_button"), new BlockItem(CURSED_BUTTON, new FabricItemSettings().group(ItemGroup.MISC).group(ItemGroup.REDSTONE)));
         FlammableBlockRegistry.getDefaultInstance().add(CURSED_BUTTON, 5,20);
+
+        Registry.register(Registry.BLOCK, new Identifier(MOD_ID,"cursed_pressure_plate" ), CURSED_PRESSURE_PLATE);
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID,"cursed_pressure_plate"), new BlockItem(CURSED_PRESSURE_PLATE, new FabricItemSettings().group(ItemGroup.MISC).group(ItemGroup.REDSTONE)));
+        FlammableBlockRegistry.getDefaultInstance().add(CURSED_PRESSURE_PLATE, 5,20);
+
+        Registry.register(Registry.BLOCK, new Identifier(MOD_ID,"cursed_fence" ), CURSED_FENCE);
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID,"cursed_fence"), new BlockItem(CURSED_FENCE, new FabricItemSettings().group(ItemGroup.MISC).group(ItemGroup.DECORATIONS)));
+        FlammableBlockRegistry.getDefaultInstance().add(CURSED_PRESSURE_PLATE, 5,20);
+
 
         FabricDefaultAttributeRegistry.register(STOMPER, StomperEntity.createMobAttributes());
         FabricDefaultAttributeRegistry.register(STOMPER, StomperEntity.createMobAttributes());

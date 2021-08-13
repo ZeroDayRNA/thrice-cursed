@@ -3,7 +3,7 @@
   "group": "wooden_button",
   "ingredients": [
     {
-      "item": "tcursed:cursed_planks"
+      "item": "tcursed:cursed_plank"
     }
   ],
   "result": {
