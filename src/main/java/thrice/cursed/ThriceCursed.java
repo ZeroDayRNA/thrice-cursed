@@ -7,6 +7,7 @@ import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
+import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
 import net.minecraft.block.*;
 import net.minecraft.client.render.entity.model.EntityModelLayer;
 import net.minecraft.entity.EntityDimensions;
@@ -20,6 +21,7 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.block.AbstractBlock.Settings;
+import net.minecraft.tag.*;
 import thrice.cursed.entity.StomperEntity;
 
 
@@ -27,7 +29,7 @@ public class ThriceCursed implements ModInitializer {
     public static PillarBlock createLog(){
         return new PillarBlock(FabricBlockSettings.of(Material.WOOD, (state)->{
             return state.get(PillarBlock.AXIS) == Direction.Axis.Y ? MapColor.BROWN : MapColor.GREEN;
-        }).strength(2.0f).sounds(BlockSoundGroup.WOOD));
+        }).strength(2.3f).sounds(BlockSoundGroup.WOOD));
     }
     public static final EntityType<StomperEntity> STOMPER = Registry.register(
             Registry.ENTITY_TYPE,
@@ -40,10 +42,10 @@ public class ThriceCursed implements ModInitializer {
     public static final Block TEST_BLOCK = new Block(FabricBlockSettings.of(Material.METAL).strength(4.0f));
     public static final Block TEST_BLOCK_2 = new Block(FabricBlockSettings.of(Material.WOOD).strength(4.0f));
     public static final Block CURSED_WOOD = createLog();
-    public static final Block CURSED_PLANK = new Block(FabricBlockSettings.of(Material.WOOD).strength(2.0f));
+    public static final Block CURSED_PLANK = new Block(FabricBlockSettings.of(Material.WOOD).strength(2.3f).breakByTool(FabricToolTags.AXES));
     public static final Block CURSED_STAIR = new TerraformStairsBlock(CURSED_PLANK, Settings.copy(Blocks.OAK_STAIRS));
-    public static final Block CURSED_HALF = new SlabBlock(FabricBlockSettings.of(Material.WOOD).strength(2.0f));
-    public static final Block CURSED_DOOR = new TerraformDoorBlock(FabricBlockSettings.of(Material.WOOD).strength(2.0f));
+    public static final Block CURSED_HALF = new SlabBlock(FabricBlockSettings.of(Material.WOOD).strength(2.3f).breakByTool(FabricToolTags.AXES));
+    public static final Block CURSED_DOOR = new TerraformDoorBlock(FabricBlockSettings.of(Material.WOOD).strength(2.3f).breakByTool(FabricToolTags.AXES));
 
 
 
@@ -69,21 +71,15 @@ public class ThriceCursed implements ModInitializer {
         Registry.register(Registry.BLOCK, new Identifier("tcursed","cursed_stair" ), CURSED_STAIR);
         Registry.register(Registry.ITEM, new Identifier("tcursed","cursed_stair"), new BlockItem(CURSED_STAIR, new FabricItemSettings().group(ItemGroup.MISC).group(ItemGroup.BUILDING_BLOCKS)));
 
-<<<<<<< HEAD
-        FabricDefaultAttributeRegistry.register(STOMPER, StomperEntity.createMobAttributes());
-
         Registry.register(Registry.BLOCK, new Identifier("tcursed","cursed_half" ), CURSED_HALF);
         Registry.register(Registry.ITEM, new Identifier("tcursed","cursed_half"), new BlockItem(CURSED_HALF, new FabricItemSettings().group(ItemGroup.MISC).group(ItemGroup.BUILDING_BLOCKS)));
 
         Registry.register(Registry.BLOCK, new Identifier("tcursed","cursed_door" ), CURSED_DOOR);
         Registry.register(Registry.ITEM, new Identifier("tcursed","cursed_door"), new BlockItem(CURSED_DOOR, new FabricItemSettings().group(ItemGroup.MISC).group(ItemGroup.REDSTONE)));
 
-=======
-        Registry.register(Registry.BLOCK, new Identifier("tcursed","cursed_half" ), CURSED_HALF);
-        Registry.register(Registry.ITEM, new Identifier("tcursed","cursed_half"), new BlockItem(CURSED_HALF, new FabricItemSettings().group(ItemGroup.MISC).group(ItemGroup.BUILDING_BLOCKS)));
-
         FabricDefaultAttributeRegistry.register(STOMPER, StomperEntity.createMobAttributes());
->>>>>>> 0aa09221aefb045744b9d68c5657bb302378ac82
+        FabricDefaultAttributeRegistry.register(STOMPER, StomperEntity.createMobAttributes());
+
 
         System.out.println("Hello Fabric world!");
     }
