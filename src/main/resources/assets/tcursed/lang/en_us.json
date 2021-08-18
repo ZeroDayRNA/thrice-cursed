@@ -6,6 +6,6 @@
   "block.tcursed.cursed_door": "Cursed Door",
   "block.tcursed.cursed_button": "Cursed Button",
   "block.tcursed.cursed_pressure_plate": "Cursed Pressure Plate",
-  "block.tcursed.cursed_fence": "Cursed Fence"
-
+  "block.tcursed.cursed_fence": "Cursed Fence",
+  "block.tcursed.cursed_trapdoor": "Cursed Trapdoor"
 }
