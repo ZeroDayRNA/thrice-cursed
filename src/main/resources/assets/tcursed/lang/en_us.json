@@ -7,5 +7,12 @@
   "block.tcursed.cursed_button": "Cursed Button",
   "block.tcursed.cursed_pressure_plate": "Cursed Pressure Plate",
   "block.tcursed.cursed_fence": "Cursed Fence",
-  "block.tcursed.cursed_trapdoor": "Cursed Trapdoor"
+  "block.tcursed.cursed_trapdoor": "Cursed Trapdoor",
+  "item.tcursed.cursedcrystal_sword": "Wrath",
+  "item.tcursed.cursedcrystal_pickaxe": "Avarice",
+  "item.tcursed.empowered_crystal": "§1Empowered Crystal",
+  "item.tcursed.cursed_crystal" : "§5Cursed Jewel",
+  "item.tcursed.potentia" : "§3Potentia",
+  "enchantment.tcursed.enchantments" : "§cExplosion",
+  "enchantment.tcursed.crossboom" : "§cFirebomb"
 }

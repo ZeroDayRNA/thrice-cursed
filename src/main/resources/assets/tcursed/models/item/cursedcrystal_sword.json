@@ -1,0 +1,6 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "tcursed:item/cursedcrystal_sword"
+  }
+}

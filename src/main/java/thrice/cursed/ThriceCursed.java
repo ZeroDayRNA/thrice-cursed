@@ -6,24 +6,24 @@ import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
-import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
-import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
-import net.fabricmc.fabric.api.registry.FuelRegistry;
+import net.minecraft.block.AbstractBlock.Settings;
 import net.minecraft.block.*;
+import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
-import net.minecraft.entity.vehicle.BoatEntity;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.Item;
+import net.minecraft.item.*;
+import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.registry.Registry;
-import net.minecraft.sound.BlockSoundGroup;
-import net.minecraft.block.AbstractBlock.Settings;
+import thrice.cursed.enchantments.CombustionEnchantments;
+import thrice.cursed.enchantments.CrossBoom;
 import thrice.cursed.entity.StomperEntity;
+import thrice.cursed.items.PickaxeBase;
+import thrice.cursed.items.ToolMaterialCursedCrystal;
+import thrice.cursed.items.empowered_crystal;
 
 public class ThriceCursed implements ModInitializer {
     public static final String MOD_ID = "tcursed";
@@ -36,7 +36,7 @@ public class ThriceCursed implements ModInitializer {
     public static final EntityType<StomperEntity> STOMPER = Registry.register(
             Registry.ENTITY_TYPE,
             new Identifier(MOD_ID,"stomper"),
-            FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, StomperEntity::new).dimensions(EntityDimensions.fixed(0.75f,0.75f)).build()
+            FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, StomperEntity::new).dimensions(EntityDimensions.fixed(.90f,3.0f)).build()
     );
 
     public static final Item TEST_ITEM = new Item(new FabricItemSettings().group(ItemGroup.MISC));
@@ -52,11 +52,23 @@ public class ThriceCursed implements ModInitializer {
     public static final Block CURSED_PRESSURE_PLATE = new TerraformPressurePlateBlock(FabricBlockSettings.of(Material.WOOD).strength(2.3f));
     public static final Block CURSED_FENCE = new FenceBlock(FabricBlockSettings.of(Material.WOOD).strength(2.3f));
     public static final Block CURSED_TRAPDOOR = new TerraformTrapdoorBlock(FabricBlockSettings.of(Material.WOOD).strength(2.3f));
-
+    public static final MiningToolItem CURSED_CRYSTAL_PICKAXE = new PickaxeBase(ToolMaterialCursedCrystal.INSTANCE, 1, -2.8f, new Item.Settings().group(ItemGroup.TOOLS));
+    public static final SwordItem CURSED_CRYSTAL_SWORD = new SwordItem(ToolMaterialCursedCrystal.INSTANCE, 1000, 10f, new Item.Settings().group(ItemGroup.COMBAT));
+    public static final Item EMPOWERED_CRYSTAL = new empowered_crystal (new FabricItemSettings().group(ItemGroup.MISC));
+    public static final Item CURSED_CRYSTAL = new empowered_crystal (new FabricItemSettings().group(ItemGroup.MISC));
+    public static final Item POTENTIA = new empowered_crystal(new FabricItemSettings().group(ItemGroup.MISC));
+    public static final Enchantment COMBUSTION = new CombustionEnchantments();
+    public static final Enchantment CROSSBOOM = new CrossBoom();
 
     @Override
     public void onInitialize() {
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "colidsh_item"), TEST_ITEM);
+
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "empowered_crystal"), EMPOWERED_CRYSTAL);
+
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "potentia"), POTENTIA);
+
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "cursed_crystal"), CURSED_CRYSTAL);
 
         Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "coldish_block"), COLDISH_BLOCK);
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "coldish_block"), new BlockItem(COLDISH_BLOCK, new FabricItemSettings().group(ItemGroup.MISC)));
@@ -103,8 +115,14 @@ public class ThriceCursed implements ModInitializer {
         Registry.register(Registry.ITEM, new Identifier(MOD_ID,"cursed_trapdoor"), new BlockItem(CURSED_TRAPDOOR, new FabricItemSettings().group(ItemGroup.MISC).group(ItemGroup.REDSTONE)));
         FlammableBlockRegistry.getDefaultInstance().add(CURSED_TRAPDOOR, 5,20);
 
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID,"cursedcrystal_pickaxe"), CURSED_CRYSTAL_PICKAXE);
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID,"cursedcrystal_sword"), CURSED_CRYSTAL_SWORD);
+
         FabricDefaultAttributeRegistry.register(STOMPER, StomperEntity.createMobAttributes());
         FabricDefaultAttributeRegistry.register(STOMPER, StomperEntity.createMobAttributes());
+
+        Registry.register(Registry.ENCHANTMENT, new Identifier(MOD_ID, "enchantments"), COMBUSTION);
+        Registry.register(Registry.ENCHANTMENT, new Identifier(MOD_ID, "crossboom"), CROSSBOOM);
 
 
         System.out.println("Hello Fabric world!");

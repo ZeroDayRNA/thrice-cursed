@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#T#",
+    "#T#",
+    "O/O"
+  ],
+  "key": {
+    "#": {
+      "item": "tcursed:cursed_wood"
+    },
+    "T": {
+      "item": "tcursed:cursed_crystal"
+    },
+    "O": {
+      "item": "tcursed:empowered_crystal"
+    },
+    "/": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "tcursed:cursedcrystal_sword",
+    "count": 1
+  }
+}

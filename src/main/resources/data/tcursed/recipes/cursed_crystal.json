@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#W#",
+    "STS",
+    "#Z#"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:ender_eye"
+    },
+    "W": {
+      "item": "minecraft:wither_skeleton_skull"
+    },
+    "S": {
+      "item": "minecraft:soul_lantern"
+    },
+    "T": {
+      "item": "tcursed:empowered_crystal"
+    },
+    "Z": {
+      "item": "minecraft:zombie_head"
+    }
+  },
+  "result": {
+    "item": "tcursed:cursed_crystal",
+    "count": 1
+  }
+}
